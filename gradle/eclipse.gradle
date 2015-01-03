@@ -1,13 +1,23 @@
 allprojects { p ->
 	afterEvaluate {
+		task cleanSettingsDir(type: Delete) {
+			def settingsDir = new File(p.projectDir, '.settings')
+			delete settingsDir
+			description = "删除${settingsDir}目录"
+			doFirst { println description }
+		}
+		cleanEclipse.dependsOn cleanSettingsDir
+
 		def isJavaProject = false
-		plugins.withType(JavaPlugin) { isJavaProject = true }
+		plugins.withType(JavaPlugin) {
+			isJavaProject = true
+			cleanSettingsDir.dependsOn cleanEclipseJdt
+		}
 
 		plugins.withType(EclipsePlugin) {
 			eclipse {
 				classpath {
 					if (isJavaProject) {
-						println p.sourceSets.main.output.classesDir
 						defaultOutputDir = p.sourceSets.main.output.classesDir
 						downloadSources = true
 						downloadJavadoc = false
