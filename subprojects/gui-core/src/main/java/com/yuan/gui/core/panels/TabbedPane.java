@@ -174,14 +174,14 @@ public class TabbedPane extends JPanel {
 		}
 	}
 
-	public Font getDefaultFontAt(int index) {
-		Component com = pane.getTabComponentAt(index);
-		if (com instanceof TabPanel) {
-			TabPanel panel = (TabPanel) com;
-			return panel.getDefaultFont();
-		}
-		return null;
-	}
+	// public Font getDefaultFontAt(int index) {
+	// Component com = pane.getTabComponentAt(index);
+	// if (com instanceof TabPanel) {
+	// TabPanel panel = (TabPanel) com;
+	// return panel.getDefaultFont();
+	// }
+	// return null;
+	// }
 
 	public String getTitleAt(int index) {
 		return pane.getTitleAt(index);
@@ -295,7 +295,7 @@ public class TabbedPane extends JPanel {
 	private class TabPanel extends JPanel {
 		private static final long serialVersionUID = -8249981130816404360L;
 		private final BorderLayout layout = new BorderLayout();
-		private final Font defaultFont = new Font("Dialog", Font.PLAIN, 11);
+		// private final Font defaultFont = new Font("Dialog", Font.PLAIN, 11);
 		private JLabel iconLabel;
 		private JLabel titleLabel;
 
@@ -303,7 +303,7 @@ public class TabbedPane extends JPanel {
 			setOpaque(false);
 			this.setLayout(layout);
 			titleLabel = new JLabel(title);
-			titleLabel.setFont(defaultFont);
+			// titleLabel.setFont(defaultFont);
 			if (icon != null) {
 				iconLabel = new JLabel(icon);
 				add(iconLabel, BorderLayout.WEST);
@@ -343,9 +343,9 @@ public class TabbedPane extends JPanel {
 			}
 		}
 
-		public Font getDefaultFont() {
-			return defaultFont;
-		}
+		// public Font getDefaultFont() {
+		// return defaultFont;
+		// }
 
 		public void setIcon(Icon icon) {
 			iconLabel.setIcon(icon);

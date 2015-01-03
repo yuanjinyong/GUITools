@@ -52,9 +52,9 @@ public class Tab extends JPanel {
 		pane.setTitleBoldAt(pane.getTabPosition(this), bold);
 	}
 
-	public Font getDefaultFont() {
-		return pane.getDefaultFontAt(pane.getTabPosition(this));
-	}
+	// public Font getDefaultFont() {
+	// return pane.getDefaultFontAt(pane.getTabPosition(this));
+	// }
 
 	public void setTabFont(Font font) {
 		pane.setTitleFontAt(pane.getTabPosition(this), font);

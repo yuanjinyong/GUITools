@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -19,7 +20,9 @@ import com.yuan.gui.app.schema.Xml2Xsd;
 import com.yuan.gui.app.utils.ConfigUtil;
 import com.yuan.gui.core.fields.Field;
 import com.yuan.gui.core.fields.JFileField;
+import com.yuan.gui.core.panels.Banner;
 import com.yuan.gui.core.panels.NavigateBar;
+import com.yuan.gui.core.panels.TitleBar;
 import com.yuan.gui.core.partitions.BasicTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
@@ -42,6 +45,18 @@ public class Xml2XsdPartition extends WizardPartition {
 	}
 
 	@Override
+	protected TitleBar createTitleBar() {
+		return new TitleBar(Constants.MAINFRAME_TOOLBAR_XML2XSD, new ImageIcon(
+				Xml2XsdPartition.class.getResource("/image/gradle-import.png")), createButton("Help1"),
+				createButton("Help2"), createButton("Help3"), createButton("Help4"), createButton("Help5"));
+	}
+
+	@Override
+	protected Banner createBanner() {
+		return new Banner(createButton(Constants.XML2XSDDLG_BTN_GEN));
+	}
+
+	@Override
 	protected BasicTablePartition createContentPane(BasicTablePartition content) {
 		Xml2Xsd config = ConfigUtil.getInstance().getConfig().getXml2Xsd();
 		proxyHostField = createTextField("代理服务器IP：", config.getProxyhost());
@@ -52,19 +67,25 @@ public class Xml2XsdPartition extends WizardPartition {
 		xmlFileNameField = createFileField("XML文件路径：", config.getXmlpath(), "请选择XML文件路径", JFileChooser.FILES_ONLY);
 		xsdFileNameField = createFileField("XSD文件路径：", config.getXsdpath(), "请选择XSD文件路径", JFileChooser.FILES_ONLY);
 
-		content.addGroupRow(proxyHostField, proxyHostField.getField());
-		content.addGroupRow(proxyPortField, proxyPortField.getField());
-		content.addGroupRow(proxyUserField, proxyUserField.getField());
-		content.addGroupRow(proxyPwdField, proxyPwdField.getField());
+		BasicTablePartition t1 = new BasicTablePartition();
+		t1.addGroupRow(proxyHostField);
+		t1.addGroupRow(proxyUserField);
+		t1.addGroupCol(Alignment.TRAILING, proxyHostField, proxyUserField);
+
+		BasicTablePartition t2 = new BasicTablePartition();
+		t2.addGroupRow(proxyHostField.getField(), proxyPortField, proxyPortField.getField());
+		t2.addGroupRow(proxyUserField.getField(), proxyPwdField, proxyPwdField.getField());
+		t2.addGroupCol(proxyHostField.getField(), proxyUserField.getField());
+		t2.addGroupCol(Alignment.TRAILING, proxyPortField, proxyPwdField);
+		t2.addGroupCol(proxyPortField.getField(), proxyPwdField.getField());
+
+		content.addGroupRow(t1, t2);
 		content.addGroupRow(jarPathField, jarPathField.getField());
 		content.addGroupRow(xmlFileNameField, xmlFileNameField.getField());
 		content.addGroupRow(xsdFileNameField, xsdFileNameField.getField());
 
-		content.addGroupCol(Alignment.TRAILING, proxyHostField, proxyPortField, proxyUserField, proxyPwdField, jarPathField,
-				xmlFileNameField, xsdFileNameField);
-		content.addGroupCol(proxyHostField.getField(), proxyPortField.getField(), proxyUserField.getField(),
-				proxyPwdField.getField(), jarPathField.getField(), xmlFileNameField.getField(),
-				xsdFileNameField.getField());
+		content.addGroupCol(Alignment.TRAILING, t1, jarPathField, xmlFileNameField, xsdFileNameField);
+		content.addGroupCol(t2, jarPathField.getField(), xmlFileNameField.getField(), xsdFileNameField.getField());
 
 		return content;
 	}
