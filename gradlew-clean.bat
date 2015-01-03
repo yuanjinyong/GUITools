@@ -1,0 +1,2 @@
+gradlew clean cleanEclipse
+pause

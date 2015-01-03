@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:menuBar xmlns:ns2="http://www.example.org/menu/">
+    <menus>
+    	<text>工具</text>
+        <menuItems>
+            <text>Jar工具</text>
+        </menuItems>
+        <menuItems>
+            <text>XML工具</text>
+        </menuItems>
+        <menuItems>
+            <separator>true</separator>
+        </menuItems>
+        <menuItems>
+            <text>删除目录</text>
+        </menuItems>
+        <menuItems>
+            <text>加密解密</text>
+        </menuItems>
+    </menus>
+    <menus>
+    	<text>帮助</text>
+        <menuItems>
+            <text>About...</text>
+        </menuItems>
+    </menus>
+</ns2:menuBar>

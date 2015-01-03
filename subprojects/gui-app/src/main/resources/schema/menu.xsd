@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/menu/"
+	targetNamespace="http://www.example.org/menu/">
+	<element name="menuBar">
+		<complexType>
+			<sequence>
+				<element name="menus" type="tns:menu" minOccurs="1"
+					maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="menu">
+		<sequence>
+			<element name="text" type="string" minOccurs="1"></element>
+			<element name="menuItems" type="tns:menuItem" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="menuItem">
+		<choice>
+			<element name="separator" type="boolean" minOccurs="1"></element>
+			<element name="text" type="string" minOccurs="1"></element>
+		</choice>
+	</complexType>
+</schema>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/config"
+	xmlns:tns="http://www.example.org/config" elementFormDefault="qualified">
+
+	<element name="config">
+		<complexType>
+			<sequence>
+				<element name="settings" type="tns:settings" maxOccurs="1"
+					minOccurs="0">
+				</element>
+				<element name="xml2xsd" type="tns:xml2xsd" maxOccurs="1"
+					minOccurs="0">
+				</element>
+				<element name="xsd2java" type="tns:xsd2java" maxOccurs="1"
+					minOccurs="0">
+				</element>
+				<element name="xmlformat" type="tns:xmlformat" maxOccurs="1"
+					minOccurs="0">
+				</element>
+				<element name="build" type="tns:build" maxOccurs="1"
+					minOccurs="0">
+				</element>
+				<element name="javaformat" type="tns:javaformat" maxOccurs="1"
+					minOccurs="0"></element>
+				<element name="exportCommitLog" type="tns:exportCommitLog"
+					maxOccurs="1" minOccurs="0"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="settings">
+		<sequence>
+			<element name="workDir" type="string"></element>
+			<element name="toolsDir" type="string"></element>
+			<element name="toolsSvnPath" type="string"></element>
+			<element name="toolsSvnPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="projectGroupDir" type="string"></element>
+			<element name="projectGroupList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="codeDir" type="string"></element>
+			<element name="baseDir" type="string"></element>
+			<element name="baseDatabase" type="string"></element>
+			<element name="baseCodeDir" type="string"></element>
+			<element name="baseCodeSvnPath" type="string"></element>
+			<element name="baseCodeSvnPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="baseWorkSpaceDir" type="string"></element>
+			<element name="baseWorkSpaceSvnPath" type="string"></element>
+			<element name="baseWorkSpaceSvnPathList" type="string"
+				maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="custDir" type="string"></element>
+			<element name="custWorkSpaceDir" type="string"></element>
+			<element name="custWorkSpaceSvnPath" type="string"></element>
+			<element name="custWorkSpaceSvnPathList" type="string"
+				maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="beDir" type="string"></element>
+			<element name="beList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="beDatabase" type="string"></element>
+			<element name="beCodeDir" type="string"></element>
+			<element name="beCodeSvnPath" type="string"></element>
+			<element name="beCodeSvnPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="docDir" type="string"></element>
+			<element name="tnsnames" type="string"></element>
+			<element name="tnsnamesList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="tortoiseProcPath" type="string"></element>
+			<element name="tortoiseProcPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="winRarPath" type="string"></element>
+			<element name="winRarPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+			<element name="jdguiPath" type="string"></element>
+			<element name="jdguiPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="xml2xsd">
+		<sequence>
+			<element name="proxyhost" type="string"></element>
+			<element name="proxyport" type="string"></element>
+			<element name="proxyuser" type="string"></element>
+			<element name="proxypwd" type="string"></element>
+			<element name="toolpath" type="string"></element>
+			<element name="xmlpath" type="string"></element>
+			<element name="xsdpath" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="xsd2java">
+		<sequence>
+			<element name="encoding" type="string"></element>
+			<element name="xsddir" type="string"></element>
+			<element name="javadir" type="string"></element>
+			<element name="package" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="xmlformat">
+		<sequence>
+			<element name="formattype" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="build">
+		<sequence>
+			<element name="hostip" type="string"></element>
+			<element name="promt" type="string"></element>
+			<element name="user" type="string"></element>
+			<element name="pwd" type="string"></element>
+			<element name="svnUser" type="string"></element>
+			<element name="svnPwd" type="string"></element>
+			<element name="codepath" type="string"></element>
+			<element name="svnpath" type="string"></element>
+			<element name="winrarpath" type="string"></element>
+			<element name="beid" type="string"></element>
+			<element name="hostIpList" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="codePathList" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="svnPathList" type="string" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="javaformat">
+		<sequence>
+			<element name="filetype" type="string"></element>
+			<element name="filename" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="exportCommitLog">
+		<sequence>
+			<element name="choice" type="string"></element>
+			<element name="codePath" type="string"></element>
+			<element name="srcFile" type="string"></element>
+			<element name="destFile" type="string"></element>
+			<element name="logConfig" type="tns:logConfig" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+	<complexType name="logConfig">
+		<sequence>
+			<element name="revision" type="string"></element>
+			<element name="svnAccounts" type="string"></element>
+			<element name="date" type="string"></element>
+			<element name="message" type="string"></element>
+			<element name="projectTeam" type="string"></element>
+			<element name="no" type="string"></element>
+			<element name="modifyReason" type="string"></element>
+			<element name="modifyDesc" type="string"></element>
+			<element name="author" type="string"></element>
+			<element name="fileList" type="string"></element>
+		</sequence>
+	</complexType>
+</schema>
