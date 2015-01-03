@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config xmlns="http://www.example.org/config">
+    <settings>
+        <toolsDir>E:\VGS\CODE\CUST\tools</toolsDir>
+        <toolsSvnPath>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/tools</toolsSvnPath>
+        <toolsSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/tools</toolsSvnPathList>
+        <projectGroupDir>CRM</projectGroupDir>
+        <projectGroupList>CRM</projectGroupList>
+        <projectGroupList>VGS</projectGroupList>
+        <codeDir>E:\CRM\CODE</codeDir>
+        <baseDir>E:\CRM\CODE\BASE</baseDir>
+        <baseCodeDir>E:\CRM\CODE\BASE\code</baseCodeDir>
+        <baseCodeSvnPath>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_V300R003C01_Release_BASE_20120406/module/ccbm/code</baseCodeSvnPath>
+        <baseCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_V300R003C01_Release_BASE_20120406/module/ccbm/code</baseCodeSvnPathList>
+        <baseCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_R003C02_SDU_BASE_20130507/code</baseCodeSvnPathList>
+        <baseWorkSpaceDir>E:\CRM\CODE\BASE\workspace</baseWorkSpaceDir>
+        <baseWorkSpaceSvnPath>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_V300R003C01_Release_BASE_20120406/module/ccbm/workspace</baseWorkSpaceSvnPath>
+        <baseWorkSpaceSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_V300R003C01_Release_BASE_20120406/module/ccbm/workspace</baseWorkSpaceSvnPathList>
+        <baseWorkSpaceSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_R003C02_SDU_BASE_20130507/workspace</baseWorkSpaceSvnPathList>
+        <custDir>E:\CRM\CODE\CUST</custDir>
+        <custWorkSpaceDir>E:\CRM\CODE\CUST\workspace</custWorkSpaceDir>
+        <custWorkSpaceSvnPath>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/CRM_CUST_Demo/workspace</custWorkSpaceSvnPath>
+        <custWorkSpaceSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/CRM_CUST_Demo/workspace</custWorkSpaceSvnPathList>
+        <custWorkSpaceSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VIP/workspace</custWorkSpaceSvnPathList>
+        <custWorkSpaceSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/workspace</custWorkSpaceSvnPathList>
+        <beDir>E:\CRM\CODE\CUSTCRM_CUST_Demo</beDir>
+        <beList>CRM_CUST_Demo</beList>
+        <beList>Senegal_Expresso</beList>
+        <beList>VIP</beList>
+        <beList>Cust_Demo</beList>
+        <beList>Philippine_Sun</beList>
+        <beList>UAE_Du</beList>
+        <beCodeDir>E:\CRM\CODE\CUSTCRM_CUST_Demo\module\ccbm\code</beCodeDir>
+        <beCodeSvnPath>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/CRM_CUST_Demo/code</beCodeSvnPath>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/CRM_CUST_Demo/code</beCodeSvnPathList>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/Senegal_Expresso/code</beCodeSvnPathList>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VIP/code</beCodeSvnPathList>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/Chile_Nextel/module/ccbm/code</beCodeSvnPathList>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/Cust_Demo/module/ccbm/code</beCodeSvnPathList>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/Philippine_Sun/module/ccbm/code</beCodeSvnPathList>
+        <beCodeSvnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_Custom/trunk/VGS/UAE_Du/module/ccbm/code</beCodeSvnPathList>
+        <docDir>E:\CRM\DOC</docDir>
+        <tnsnamesList>C:\oracle\ora92\network\ADMIN\tnsnames.ora</tnsnamesList>
+        <tnsnamesList>D:\oracle\ora92\network\ADMIN\tnsnames.ora</tnsnamesList>
+        <tnsnamesList>E:\oracle\ora92\network\ADMIN\tnsnames.ora</tnsnamesList>
+        <tnsnamesList>T:\其他辅助工具\VGSTool\tnsnames.ora</tnsnamesList>
+        <tortoiseProcPath>C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe</tortoiseProcPath>
+        <tortoiseProcPathList>C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe</tortoiseProcPathList>
+        <tortoiseProcPathList>D:\Program Files\TortoiseSVN\bin\TortoiseProc.exe</tortoiseProcPathList>
+        <tortoiseProcPathList>E:\Program Files\TortoiseSVN\bin\TortoiseProc.exe</tortoiseProcPathList>
+        <winRarPath>C:\Program Files\WinRAR\WinRAR.exe</winRarPath>
+        <winRarPathList>C:\Program Files\WinRAR\WinRAR.exe</winRarPathList>
+        <winRarPathList>D:\Program Files\WinRAR\WinRAR.exe</winRarPathList>
+        <winRarPathList>E:\Program Files\WinRAR\WinRAR.exe</winRarPathList>
+        <jdguiPathList>T:\其他辅助工具\jd-gui.exe</jdguiPathList>
+        <jdguiPathList>T:\其他辅助工具\jd-gui\jd-gui.exe</jdguiPathList>
+        <jdguiPathList>Y:\tools\其他辅助工具\jd-gui.exe</jdguiPathList>
+        <jdguiPathList>Y:\tools\其他辅助工具\jd-gui\jd-gui.exe</jdguiPathList>
+        <jdguiPathList>C:\Program Files\jd-gui\jd-gui.exe</jdguiPathList>
+    </settings>
+    <xml2xsd>
+        <proxyhost>proxynj.huawei.com</proxyhost>
+        <proxyport>8080</proxyport>
+        <proxyuser>y00185170</proxyuser>
+        <proxypwd>6yhn^YHN</proxypwd>
+        <toolpath>T:\其他辅助工具\VGSTool\Code\lib\xml\xsd-gen-0.2.0-jar-with-dependencies.jar</toolpath>
+        <xmlpath>T:\其他辅助工具\VGSTool\Code\res\xml\login-config.xml</xmlpath>
+        <xsdpath>T:\其他辅助工具\VGSTool\Code\res\schema\login-config.xsd</xsdpath>
+    </xml2xsd>
+    <xsd2java>
+        <encoding>UTF-8</encoding>
+        <xsddir>X:\code\crm.war\WEB-INF\config\intf\import\cbs5.5\wsdl</xsddir>
+        <javadir>X:\workspace\crmbase_jar\src</javadir>
+        <package>com.huawei.crm.exintf.cbsfive.value</package>
+    </xsd2java>
+    <xmlformat>
+        <formattype>Pretty</formattype>
+    </xmlformat>
+    <build>
+        <hostip>192.168.48.29</hostip>
+        <promt>#</promt>
+        <user>vgsbuild_du</user>
+        <pwd>jpj</pwd>
+        <svnUser>y00185170</svnUser>
+        <svnPwd>7ujm&amp;UJM</svnPwd>
+        <codepath>/opt/vgsbuild_du/codeDevEbus</codepath>
+        <svnpath>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_R003C02_SDU_BASE_20130507/code</svnpath>
+        <beid>UAE_Du</beid>
+        <hostIpList>192.168.48.29</hostIpList>
+        <hostIpList>10.132.66.134</hostIpList>
+        <codePathList>/opt/vgsbuild_du/codeDevEbus</codePathList>
+        <codePathList>/home/dbuildexp/dev_build/BASE_20120406/module/ccbm</codePathList>
+        <codePathList>/home/dbuildexp/dev_build/BASE_20120406/module/channel</codePathList>
+        <svnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_R003C02_SDU_BASE_20130507/code</svnPathList>
+        <svnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_V300R003C01_Release_BASE_20120406/module/ccbm/code</svnPathList>
+        <svnPathList>https://172.19.49.186:3690/svn/CCBU_CRM_CODE_SVN/CRM_CODE/branches/brh_CRM_V300R003C01_Release_BASE_20120406/module/channel/code</svnPathList>
+    </build>
+    <javaformat>
+        <filetype>.jar</filetype>
+        <filename>X:\code\lib\platform\intf\com.huawei.ebus.core-3.1.2.v20130228.jar</filename>
+    </javaformat>
+    <exportCommitLog>
+        <choice>输入框</choice>
+        <codePath>/CRM_Custom/trunk/Senegal_Expresso/code</codePath>
+        <logConfig>
+            <revision>Revision:</revision>
+            <svnAccounts>Author:</svnAccounts>
+            <date>Date:</date>
+            <message>Message:</message>
+            <projectTeam>[Project Team]</projectTeam>
+            <no>[DTS/Requirement No/story No]</no>
+            <modifyReason>[modify reason]</modifyReason>
+            <modifyDesc>[modify description]</modifyDesc>
+            <author>[author]</author>
+            <fileList>-------------------------------</fileList>
+        </logConfig>
+    </exportCommitLog>
+</config>
