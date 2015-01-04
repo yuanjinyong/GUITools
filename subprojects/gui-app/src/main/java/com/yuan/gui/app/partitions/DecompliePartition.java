@@ -17,12 +17,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.filechooser.FileFilter;
 
 import com.yuan.common.utils.CmdUtil;
+import com.yuan.gui.app.consts.Constants;
 import com.yuan.gui.app.schema.Javaformat;
 import com.yuan.gui.app.schema.Settings;
 import com.yuan.gui.app.utils.ConfigUtil;
@@ -31,7 +32,8 @@ import com.yuan.gui.core.fields.Field;
 import com.yuan.gui.core.fields.JFileField;
 import com.yuan.gui.core.fields.JRadioField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.panels.TitleBar;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 /**
@@ -48,7 +50,14 @@ public class DecompliePartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane() {
+	protected TitleBar createTitleBar() {
+		return new TitleBar(Constants.MAINFRAME_TOOLBAR_DECOMPILE, new ImageIcon(
+				Xml2XsdPartition.class.getResource("/image/gradle-import.png")), createButton("Help1"),
+				createButton("Help2"), createButton("Help3"), createButton("Help4"), createButton("Help5"));
+	}
+
+	@Override
+	protected ContainerTablePartition createContentPane() {
 		Javaformat config = ConfigUtil.getInstance().getConfig().getJavaformat();
 
 		fileTypeField = createRadioField("源文件类型：", new String[] { ".jar", ".src.zip", ".java" }, config.getFiletype());
@@ -78,7 +87,7 @@ public class DecompliePartition extends WizardPartition {
 			}
 		});
 
-		BasicTablePartition content = new BasicTablePartition();
+		ContainerTablePartition content = new ContainerTablePartition();
 		content.addGroupRow(fileTypeField, fileTypeField.getField());
 		content.addGroupRow(fileNameField, fileNameField.getField());
 		content.addGroupCol(Alignment.CENTER, fileTypeField, fileNameField);
@@ -89,7 +98,7 @@ public class DecompliePartition extends WizardPartition {
 
 	@Override
 	protected NavigateBar createNavigateBar() {
-		return new NavigateBar(FlowLayout.TRAILING, createButton("反编译"));
+		return new NavigateBar(FlowLayout.TRAILING, createButton(Constants.MAINFRAME_TOOLBAR_DECOMPILE));
 	}
 
 	@Override
@@ -109,7 +118,7 @@ public class DecompliePartition extends WizardPartition {
 
 		try {
 			String actionCommand = e.getActionCommand();
-			if ("反编译".equals(actionCommand)) {
+			if (Constants.MAINFRAME_TOOLBAR_DECOMPILE.equals(actionCommand)) {
 				Settings settings = ConfigUtil.getInstance().getConfig().getSettings();
 				if (".jar".equals(config.getFiletype())) {
 					File file = fileNameField.getField().getFile();
@@ -148,7 +157,7 @@ public class DecompliePartition extends WizardPartition {
 			}
 		} catch (IOException e1) {
 			LogUtil.error(e1.getMessage());
-			JOptionPane.showMessageDialog(this, e1.getMessage(), "反编译", JOptionPane.ERROR_MESSAGE);
+			showErrorMsg(Constants.MAINFRAME_TOOLBAR_DECOMPILE, e1.getMessage());
 		}
 	}
 

@@ -24,6 +24,7 @@ import com.yuan.gui.core.panels.Banner;
 import com.yuan.gui.core.panels.NavigateBar;
 import com.yuan.gui.core.panels.TitleBar;
 import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 /**
@@ -53,11 +54,12 @@ public class Xml2XsdPartition extends WizardPartition {
 
 	@Override
 	protected Banner createBanner() {
-		return new Banner(createButton(Constants.XML2XSDDLG_BTN_GEN));
+		// return new Banner(createButton(Constants.XML2XSDDLG_BTN_GEN));
+		return null;
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane() {
+	protected ContainerTablePartition createContentPane() {
 		Xml2Xsd config = ConfigUtil.getInstance().getConfig().getXml2Xsd();
 		proxyHostField = createTextField("代理服务器IP：", config.getProxyhost());
 		proxyPortField = createTextField("代理服务器端口：", config.getProxyport());
@@ -79,7 +81,7 @@ public class Xml2XsdPartition extends WizardPartition {
 		t2.addGroupCol(Alignment.TRAILING, proxyPortField, proxyPwdField);
 		t2.addGroupCol(proxyPortField.getField(), proxyPwdField.getField());
 
-		BasicTablePartition content = new BasicTablePartition();
+		ContainerTablePartition content = new ContainerTablePartition();
 		content.addGroupRow(t1, t2);
 		content.addGroupRow(jarPathField, jarPathField.getField());
 		content.addGroupRow(xmlFileNameField, xmlFileNameField.getField());
@@ -112,8 +114,7 @@ public class Xml2XsdPartition extends WizardPartition {
 			File srcFile = xmlFileNameField.getField().getFile();
 			File destFile = xsdFileNameField.getField().getFile();
 			if (!srcFile.exists()) {
-				JOptionPane.showMessageDialog(this, "输入的源文件不存在！", Constants.MAINFRAME_TOOLBAR_XML2XSD,
-						JOptionPane.ERROR_MESSAGE);
+				showErrorMsg(Constants.MAINFRAME_TOOLBAR_XML2XSD, "输入的源文件不存在！");
 				return;
 			}
 

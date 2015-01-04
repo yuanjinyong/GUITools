@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 import com.yuan.gui.core.dialogs.AbstractDialog;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 /**
@@ -93,7 +93,9 @@ public abstract class JComboBoxField<E> extends JComboBox<E> {
 			this.comboBox = comboBox;
 			setModal(true);
 			setItemType(itemType);
-			setMinimumSize(new Dimension(400, getPreferredSize().height));
+			Dimension minimumSize = new Dimension(400, getPreferredSize().height);
+			setMinimumSize(minimumSize);
+			setSize(minimumSize);
 		}
 
 		@Override
@@ -102,12 +104,12 @@ public abstract class JComboBoxField<E> extends JComboBox<E> {
 				private static final long serialVersionUID = 1L;
 
 				@Override
-				protected BasicTablePartition createContentPane() {
+				protected ContainerTablePartition createContentPane() {
 					textField = createTextField("可选项：", "");
 					fileField = createFileField("可选项：", "", "点击按钮选择", JFileChooser.FILES_ONLY);
 					fileField.getField().setEditable(false);
 
-					BasicTablePartition content = new BasicTablePartition();
+					ContainerTablePartition content = new ContainerTablePartition();
 					content.addGroupRow(textField, textField.getField());
 					content.addGroupRow(fileField, fileField.getField());
 					content.addGroupCol(Alignment.TRAILING, textField, fileField);

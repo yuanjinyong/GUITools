@@ -15,7 +15,7 @@ import com.yuan.gui.core.dialogs.AbstractDialog;
 import com.yuan.gui.core.fields.Field;
 import com.yuan.gui.core.fields.JRadioField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 public class SecurityDialog extends AbstractDialog {
@@ -38,7 +38,7 @@ public class SecurityDialog extends AbstractDialog {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected BasicTablePartition createContentPane() {
+			protected ContainerTablePartition createContentPane() {
 				rdoOperationGroup = createRadioField("操作类型：", new String[] { Constants.SECURITYDLG_RDO_ENCRYPT,
 						Constants.SECURITYDLG_RDO_DECRYPT }, Constants.SECURITYDLG_RDO_ENCRYPT);
 				rdoOperationGroup.getField().addActionListener(this);
@@ -53,7 +53,7 @@ public class SecurityDialog extends AbstractDialog {
 				txtTargetText = createTextField("密文：", "");
 				txtTargetText.getField().setEditable(false);
 
-				BasicTablePartition content = new BasicTablePartition();
+				ContainerTablePartition content = new ContainerTablePartition();
 				content.addGroupRow(rdoOperationGroup, rdoOperationGroup.getField());
 				content.addGroupRow(rdoSecurityTypeGroup, rdoSecurityTypeGroup.getField());
 				content.addGroupRow(txtSecurityKey, txtSecurityKey.getField());

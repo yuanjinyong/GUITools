@@ -42,7 +42,7 @@ import com.yuan.gui.core.fields.JFileField;
 import com.yuan.gui.core.fields.JRadioField;
 import com.yuan.gui.core.fields.JTextAreaField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 /**
@@ -62,7 +62,7 @@ public class ExportCommitLogPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane() {
+	protected ContainerTablePartition createContentPane() {
 		ExportCommitLog config = ConfigUtil.getInstance().getConfig().getExportCommitLog();
 
 		srcTypeField = createRadioField("日志来源：", new String[] { Constants.EXPLOGDLG_BTN_CHFILE,
@@ -71,7 +71,7 @@ public class ExportCommitLogPartition extends WizardPartition {
 		srcFileField = createFileField("日志文件：", config.getSrcFile(), "请选择日志文件", JFileChooser.FILES_ONLY);
 		srcLogField = createTextAreaField("输入日志：", "");
 
-		BasicTablePartition content = new BasicTablePartition();
+		ContainerTablePartition content = new ContainerTablePartition();
 		content.addGroupRow(srcTypeField, srcTypeField.getField());
 		content.addGroupRow(prefixPathField, prefixPathField.getField());
 		content.addGroupRow(srcFileField, srcFileField.getField());
@@ -122,7 +122,7 @@ public class ExportCommitLogPartition extends WizardPartition {
 	}
 
 	private void exportCommitLog() throws Exception, IOException, WriteException, RowsExceededException,
-			FileNotFoundException {
+	FileNotFoundException {
 		String choice = srcTypeField.getField().getValue();
 		String fileName = "export.log";
 		ExportCommitLog config = ConfigUtil.getInstance().getConfig().getExportCommitLog();
@@ -293,7 +293,7 @@ public class ExportCommitLogPartition extends WizardPartition {
 	}
 
 	private int writeCommitLog(CommitLog log, WritableSheet sheet, int row, int count) throws RowsExceededException,
-			WriteException {
+	WriteException {
 		WritableCellFormat format1 = new WritableCellFormat();
 		format1.setVerticalAlignment(VerticalAlignment.CENTRE);
 		WritableCellFormat format2 = new WritableCellFormat();

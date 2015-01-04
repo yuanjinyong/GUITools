@@ -81,7 +81,7 @@ public class TitleBar extends JPanel implements ActionListener {
 		add(p, BorderLayout.EAST);
 		toolBar.setPreferredSize(new Dimension(150, getPreferredSize().height));
 		switchButton.setPreferredSize(new Dimension(50, getPreferredSize().height));
-		setPreferredSize(new Dimension(getPreferredSize().width, 34));
+		setPreferredSize(new Dimension(getPreferredSize().width, 32));
 
 		setBackground(this);
 	}

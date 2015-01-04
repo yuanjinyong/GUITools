@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -20,7 +21,8 @@ import com.yuan.gui.app.utils.LogUtil;
 import com.yuan.gui.core.fields.Field;
 import com.yuan.gui.core.fields.JFileField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.panels.TitleBar;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 /**
@@ -39,7 +41,14 @@ public class Xsd2JavaPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane() {
+	protected TitleBar createTitleBar() {
+		return new TitleBar(Constants.MAINFRAME_TOOLBAR_XSD2JAVA, new ImageIcon(
+				Xml2XsdPartition.class.getResource("/image/gradle-import.png")), createButton("Help1"),
+				createButton("Help2"), createButton("Help3"), createButton("Help4"), createButton("Help5"));
+	}
+
+	@Override
+	protected ContainerTablePartition createContentPane() {
 		Xsd2Java config = ConfigUtil.getInstance().getConfig().getXsd2Java();
 
 		encodingField = createTextField("Java文件编码：", config.getEncoding());
@@ -48,7 +57,7 @@ public class Xsd2JavaPartition extends WizardPartition {
 				JFileChooser.DIRECTORIES_ONLY);
 		packageNameField = createTextField("Java类的包名：", config.getPackage());
 
-		BasicTablePartition content = new BasicTablePartition();
+		ContainerTablePartition content = new ContainerTablePartition();
 		content.addGroupRow(encodingField, encodingField.getField());
 		content.addGroupRow(srcDirField, srcDirField.getField());
 		content.addGroupRow(destDirField, destDirField.getField());
@@ -78,13 +87,11 @@ public class Xsd2JavaPartition extends WizardPartition {
 			File srcFile = new File(srcDirField.getText().trim());
 			File destFile = new File(destDirField.getText().trim());
 			if (!srcFile.exists()) {
-				JOptionPane.showMessageDialog(this, "输入的XSD源目录不存在！", Constants.MAINFRAME_TOOLBAR_XSD2JAVA,
-						JOptionPane.ERROR_MESSAGE);
+				showErrorMsg(Constants.MAINFRAME_TOOLBAR_XSD2JAVA, "输入的XSD源目录不存在！");
 				return;
 			}
 			if (!destFile.exists()) {
-				JOptionPane.showMessageDialog(this, "输入的Java源代码目录不存在！", Constants.MAINFRAME_TOOLBAR_XSD2JAVA,
-						JOptionPane.ERROR_MESSAGE);
+				showErrorMsg(Constants.MAINFRAME_TOOLBAR_XSD2JAVA, "输入的Java源代码目录不存在！");
 				return;
 			}
 

@@ -15,7 +15,7 @@ import com.yuan.gui.core.dialogs.AbstractDialog;
 import com.yuan.gui.core.fields.Field;
 import com.yuan.gui.core.fields.JFileField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 public class DeleteDirDialog extends AbstractDialog {
@@ -33,11 +33,11 @@ public class DeleteDirDialog extends AbstractDialog {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected BasicTablePartition createContentPane() {
+			protected ContainerTablePartition createContentPane() {
 				deleteDirField = createFileField("要删除的目录：", "X:\\workspace\\.metadata", "请选择要删除的目录",
 						JFileChooser.DIRECTORIES_ONLY);
 				deleteDirField.getField().setEditable(false);
-				BasicTablePartition content = new BasicTablePartition();
+				ContainerTablePartition content = new ContainerTablePartition();
 				content.addGroupRow(deleteDirField, deleteDirField.getField());
 				content.addGroupCol(Alignment.TRAILING, deleteDirField);
 				content.addGroupCol(deleteDirField.getField());

@@ -60,6 +60,10 @@ public class JRadioField extends JPanel {
 		radioButtons = new JRadioButton[options.length];
 		for (int i = 0; i < options.length; i++) {
 			radioButtons[i] = new JRadioButton(options[i]);
+			// Insets insets = radioButtons[i].getMargin();
+			// radioButtons[i].setMargin(new Insets(-4, insets.left, -3, insets.right));
+			// Dimension preferredSize = radioButtons[i].getPreferredSize();
+			// radioButtons[i].setPreferredSize(new Dimension(preferredSize.width, preferredSize.height - 2));
 			buttonGroup.add(radioButtons[i]);
 			add(radioButtons[i]);
 			if (options[i].equals(value)) {

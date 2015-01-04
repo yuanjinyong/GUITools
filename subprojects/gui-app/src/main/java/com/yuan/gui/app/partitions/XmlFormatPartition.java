@@ -10,6 +10,7 @@ import java.io.StringWriter;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
@@ -22,7 +23,8 @@ import com.yuan.gui.core.fields.Field;
 import com.yuan.gui.core.fields.JRadioField;
 import com.yuan.gui.core.fields.JTextAreaField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.panels.TitleBar;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 /**
@@ -40,14 +42,21 @@ public class XmlFormatPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane() {
+	protected TitleBar createTitleBar() {
+		return new TitleBar(Constants.MAINFRAME_TOOLBAR_XMLFORMAT, new ImageIcon(
+				Xml2XsdPartition.class.getResource("/image/gradle-import.png")), createButton("Help1"),
+				createButton("Help2"), createButton("Help3"), createButton("Help4"), createButton("Help5"));
+	}
+
+	@Override
+	protected ContainerTablePartition createContentPane() {
 		Xmlformat config = ConfigUtil.getInstance().getConfig().getXmlformat();
 
 		srcXMLField = createTextAreaField("格式化前：", "");
 		destXMLField = createTextAreaField("格式化后：", "");
 		formatField = createRadioField("输出格式：", new String[] { "Compact", "Pretty", "Raw" }, config.getFormattype());
 
-		BasicTablePartition content = new BasicTablePartition();
+		ContainerTablePartition content = new ContainerTablePartition();
 		content.addGroupRow(formatField, formatField.getField());
 		content.addGroupRow(GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, srcXMLField,
 				srcXMLField.getField());

@@ -21,7 +21,7 @@ import com.yuan.gui.core.fields.JComboBoxField;
 import com.yuan.gui.core.fields.JComboBoxField.ItemType;
 import com.yuan.gui.core.fields.JFileField;
 import com.yuan.gui.core.panels.NavigateBar;
-import com.yuan.gui.core.partitions.BasicTablePartition;
+import com.yuan.gui.core.partitions.ContainerTablePartition;
 import com.yuan.gui.core.partitions.WizardPartition;
 
 public class InstallDialog extends AbstractDialog {
@@ -45,7 +45,7 @@ public class InstallDialog extends AbstractDialog {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected BasicTablePartition createContentPane() {
+			protected ContainerTablePartition createContentPane() {
 				Settings settings = ConfigUtil.getInstance().getConfig().getSettings();
 				isFirstTime = settings.getWorkDir() == null ? true : false;
 
@@ -62,7 +62,7 @@ public class InstallDialog extends AbstractDialog {
 				cmbToolsSvnPath = createComboBoxField("开发工具SVN路径：", "新增SVN路径", settings.getToolsSvnPathList(),
 						settings.getToolsSvnPath());
 
-				BasicTablePartition content = new BasicTablePartition();
+				ContainerTablePartition content = new ContainerTablePartition();
 				content.addGroupRow(cmbTnsnames, cmbTnsnames.getField());
 				content.addGroupRow(cmbTortoiseProcPath, cmbTortoiseProcPath.getField());
 				content.addGroupRow(cmbWinRarPath, cmbWinRarPath.getField());

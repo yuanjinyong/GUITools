@@ -61,7 +61,7 @@ public abstract class WizardPartition extends AbstractTablePartition implements 
 		return null;
 	}
 
-	abstract protected BasicTablePartition createContentPane();
+	abstract protected ContainerTablePartition createContentPane();
 
 	protected NavigateBar createNavigateBar() {
 		return null;

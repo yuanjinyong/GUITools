@@ -18,9 +18,9 @@ import javax.swing.GroupLayout.SequentialGroup;
  */
 public abstract class AbstractTablePartition extends AbstractPartition {
 	private static final long serialVersionUID = 1L;
-	private GroupLayout layout;
-	private SequentialGroup rows;
-	private SequentialGroup cols;
+	protected GroupLayout layout;
+	protected SequentialGroup rows;
+	protected SequentialGroup cols;
 
 	public enum Gap {
 		ROW, COL
@@ -125,13 +125,5 @@ public abstract class AbstractTablePartition extends AbstractPartition {
 			break;
 		}
 		return this;
-	}
-
-	public SequentialGroup getRows() {
-		return rows;
-	}
-
-	public SequentialGroup getCols() {
-		return cols;
 	}
 }
