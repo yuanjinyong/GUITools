@@ -5,17 +5,15 @@ package com.yuan.gui.app.tabs;
 
 import java.awt.Dimension;
 
-import javax.swing.GroupLayout;
-
 import com.yuan.gui.app.partitions.DecompliePartition;
 import com.yuan.gui.app.partitions.JarSearcherPartition;
-import com.yuan.gui.core.partitions.ContainerTablePartition;
+import com.yuan.gui.core.pages.AbstractPage;
 
 /**
  * @author Yuanjy
  *
  */
-public class JarTab extends ContainerTablePartition {
+public class JarTab extends AbstractPage {
 	private static final long serialVersionUID = 1L;
 
 	public JarTab() {
@@ -27,10 +25,11 @@ public class JarTab extends ContainerTablePartition {
 		JarSearcherPartition jarSearcher = new JarSearcherPartition();
 		DecompliePartition decomplie = new DecompliePartition();
 
-		addGroupRow(GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, jarSearcher,
-				decomplie);
-		addGroupCol(jarSearcher);
-		addGroupCol(decomplie);
+		addRow(jarSearcher, decomplie);
+		addCol(jarSearcher).addCol(decomplie);
+		// this.layout.linkSize(jarSearcher, decomplie);
+		// this.layout.linkSize(SwingConstants.HORIZONTAL, jarSearcher, decomplie);
+		// this.layout.linkSize(SwingConstants.VERTICAL, jarSearcher, decomplie);
 		jarSearcher.setPreferredSize(new Dimension(getWidth() / 2, getHeight()));
 		decomplie.setPreferredSize(new Dimension(getWidth() / 2, getHeight()));
 	}

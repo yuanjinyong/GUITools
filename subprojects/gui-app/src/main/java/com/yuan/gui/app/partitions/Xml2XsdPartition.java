@@ -71,6 +71,7 @@ public class Xml2XsdPartition extends WizardPartition {
 
 		BasicTablePartition t1 = new BasicTablePartition();
 		t1.addGroupRow(proxyHostField);
+		t1.addGap(Gap.ROW, proxyHostField.getField().getHeight() - proxyHostField.getHeight() + 12);
 		t1.addGroupRow(proxyUserField);
 		t1.addGroupCol(Alignment.TRAILING, proxyHostField, proxyUserField);
 
