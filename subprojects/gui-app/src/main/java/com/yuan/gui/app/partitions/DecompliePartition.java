@@ -48,36 +48,37 @@ public class DecompliePartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane(BasicTablePartition content) {
+	protected BasicTablePartition createContentPane() {
 		Javaformat config = ConfigUtil.getInstance().getConfig().getJavaformat();
 
 		fileTypeField = createRadioField("源文件类型：", new String[] { ".jar", ".src.zip", ".java" }, config.getFiletype());
 		fileTypeField.getField().addItemListener(this);
 		fileNameField = createFileField("源文件路径：", config.getFilename(), "请选择源文件路径", JFileChooser.FILES_ONLY,
 				new FileFilter() {
-					@Override
-					public boolean accept(File f) {
-						if (f.isDirectory()) {
-							if (f.getName().endsWith(".src")) {
-								return false;
-							}
-							return true;
-						}
-
-						Javaformat config = ConfigUtil.getInstance().getConfig().getJavaformat();
-						if (f.getName().endsWith(config.getFiletype())) {
-							return true;
-						}
+			@Override
+			public boolean accept(File f) {
+				if (f.isDirectory()) {
+					if (f.getName().endsWith(".src")) {
 						return false;
 					}
+					return true;
+				}
 
-					@Override
-					public String getDescription() {
-						Javaformat config = ConfigUtil.getInstance().getConfig().getJavaformat();
-						return "*" + config.getFiletype();
-					}
-				});
+				Javaformat config = ConfigUtil.getInstance().getConfig().getJavaformat();
+				if (f.getName().endsWith(config.getFiletype())) {
+					return true;
+				}
+				return false;
+			}
 
+			@Override
+			public String getDescription() {
+				Javaformat config = ConfigUtil.getInstance().getConfig().getJavaformat();
+				return "*" + config.getFiletype();
+			}
+		});
+
+		BasicTablePartition content = new BasicTablePartition();
 		content.addGroupRow(fileTypeField, fileTypeField.getField());
 		content.addGroupRow(fileNameField, fileNameField.getField());
 		content.addGroupCol(Alignment.CENTER, fileTypeField, fileNameField);

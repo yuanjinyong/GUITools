@@ -33,10 +33,11 @@ public class DeleteDirDialog extends AbstractDialog {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected BasicTablePartition createContentPane(BasicTablePartition content) {
+			protected BasicTablePartition createContentPane() {
 				deleteDirField = createFileField("要删除的目录：", "X:\\workspace\\.metadata", "请选择要删除的目录",
 						JFileChooser.DIRECTORIES_ONLY);
 				deleteDirField.getField().setEditable(false);
+				BasicTablePartition content = new BasicTablePartition();
 				content.addGroupRow(deleteDirField, deleteDirField.getField());
 				content.addGroupCol(Alignment.TRAILING, deleteDirField);
 				content.addGroupCol(deleteDirField.getField());

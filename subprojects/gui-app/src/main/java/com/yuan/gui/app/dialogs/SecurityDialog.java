@@ -38,7 +38,7 @@ public class SecurityDialog extends AbstractDialog {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected BasicTablePartition createContentPane(BasicTablePartition content) {
+			protected BasicTablePartition createContentPane() {
 				rdoOperationGroup = createRadioField("操作类型：", new String[] { Constants.SECURITYDLG_RDO_ENCRYPT,
 						Constants.SECURITYDLG_RDO_DECRYPT }, Constants.SECURITYDLG_RDO_ENCRYPT);
 				rdoOperationGroup.getField().addActionListener(this);
@@ -52,6 +52,8 @@ public class SecurityDialog extends AbstractDialog {
 				txtSourceText = createTextField("明文：", "Abc1234%");
 				txtTargetText = createTextField("密文：", "");
 				txtTargetText.getField().setEditable(false);
+
+				BasicTablePartition content = new BasicTablePartition();
 				content.addGroupRow(rdoOperationGroup, rdoOperationGroup.getField());
 				content.addGroupRow(rdoSecurityTypeGroup, rdoSecurityTypeGroup.getField());
 				content.addGroupRow(txtSecurityKey, txtSecurityKey.getField());
@@ -201,43 +203,43 @@ public class SecurityDialog extends AbstractDialog {
 	//
 	// return securityService;
 	// }
+	//
+	// /**
+	// * 将16进制字符串数据转换成字节数据
+	// *
+	// * @param hexString
+	// * @return byte[]
+	// */
+	// private byte[] hex2Bytes(String hexString) {
+	// byte[] bytes = new byte[hexString.length() / 2];
+	//
+	// for (int i = 0; i < hexString.length(); i += 2) {
+	// bytes[i / 2] = Integer.decode("0x" + hexString.charAt(i) + hexString.charAt(i + 1)).byteValue();
+	// }
+	//
+	// return bytes;
+	// }
 
-	/**
-	 * 将16进制字符串数据转换成字节数据
-	 *
-	 * @param hexString
-	 * @return byte[]
-	 */
-	private byte[] hex2Bytes(String hexString) {
-		byte[] bytes = new byte[hexString.length() / 2];
-
-		for (int i = 0; i < hexString.length(); i += 2) {
-			bytes[i / 2] = Integer.decode("0x" + hexString.charAt(i) + hexString.charAt(i + 1)).byteValue();
-		}
-
-		return bytes;
-	}
-
-	/**
-	 * 将字节数据转换成16进制字符串
-	 *
-	 * @param bts
-	 * @return
-	 */
-	private String bytes2Hex(byte[] bts) {
-		if (null == bts) {
-			return null;
-		}
-
-		StringBuffer des = new StringBuffer();
-		String workVariable = null;
-		for (byte b : bts) {
-			workVariable = Integer.toHexString(b & 0xFF);
-			if (workVariable.length() == 1) {
-				des.append('0');
-			}
-			des.append(workVariable);
-		}
-		return des.toString();
-	}
+	// /**
+	// * 将字节数据转换成16进制字符串
+	// *
+	// * @param bts
+	// * @return
+	// */
+	// private String bytes2Hex(byte[] bts) {
+	// if (null == bts) {
+	// return null;
+	// }
+	//
+	// StringBuffer des = new StringBuffer();
+	// String workVariable = null;
+	// for (byte b : bts) {
+	// workVariable = Integer.toHexString(b & 0xFF);
+	// if (workVariable.length() == 1) {
+	// des.append('0');
+	// }
+	// des.append(workVariable);
+	// }
+	// return des.toString();
+	// }
 }

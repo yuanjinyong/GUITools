@@ -62,7 +62,7 @@ public class ExportCommitLogPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane(BasicTablePartition content) {
+	protected BasicTablePartition createContentPane() {
 		ExportCommitLog config = ConfigUtil.getInstance().getConfig().getExportCommitLog();
 
 		srcTypeField = createRadioField("日志来源：", new String[] { Constants.EXPLOGDLG_BTN_CHFILE,
@@ -71,6 +71,7 @@ public class ExportCommitLogPartition extends WizardPartition {
 		srcFileField = createFileField("日志文件：", config.getSrcFile(), "请选择日志文件", JFileChooser.FILES_ONLY);
 		srcLogField = createTextAreaField("输入日志：", "");
 
+		BasicTablePartition content = new BasicTablePartition();
 		content.addGroupRow(srcTypeField, srcTypeField.getField());
 		content.addGroupRow(prefixPathField, prefixPathField.getField());
 		content.addGroupRow(srcFileField, srcFileField.getField());

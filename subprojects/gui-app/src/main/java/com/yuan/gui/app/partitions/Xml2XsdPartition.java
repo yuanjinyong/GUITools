@@ -57,7 +57,7 @@ public class Xml2XsdPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane(BasicTablePartition content) {
+	protected BasicTablePartition createContentPane() {
 		Xml2Xsd config = ConfigUtil.getInstance().getConfig().getXml2Xsd();
 		proxyHostField = createTextField("代理服务器IP：", config.getProxyhost());
 		proxyPortField = createTextField("代理服务器端口：", config.getProxyport());
@@ -79,6 +79,7 @@ public class Xml2XsdPartition extends WizardPartition {
 		t2.addGroupCol(Alignment.TRAILING, proxyPortField, proxyPwdField);
 		t2.addGroupCol(proxyPortField.getField(), proxyPwdField.getField());
 
+		BasicTablePartition content = new BasicTablePartition();
 		content.addGroupRow(t1, t2);
 		content.addGroupRow(jarPathField, jarPathField.getField());
 		content.addGroupRow(xmlFileNameField, xmlFileNameField.getField());

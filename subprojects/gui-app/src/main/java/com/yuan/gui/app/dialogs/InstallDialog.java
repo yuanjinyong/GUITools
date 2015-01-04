@@ -45,7 +45,7 @@ public class InstallDialog extends AbstractDialog {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected BasicTablePartition createContentPane(BasicTablePartition content) {
+			protected BasicTablePartition createContentPane() {
 				Settings settings = ConfigUtil.getInstance().getConfig().getSettings();
 				isFirstTime = settings.getWorkDir() == null ? true : false;
 
@@ -62,6 +62,7 @@ public class InstallDialog extends AbstractDialog {
 				cmbToolsSvnPath = createComboBoxField("开发工具SVN路径：", "新增SVN路径", settings.getToolsSvnPathList(),
 						settings.getToolsSvnPath());
 
+				BasicTablePartition content = new BasicTablePartition();
 				content.addGroupRow(cmbTnsnames, cmbTnsnames.getField());
 				content.addGroupRow(cmbTortoiseProcPath, cmbTortoiseProcPath.getField());
 				content.addGroupRow(cmbWinRarPath, cmbWinRarPath.getField());

@@ -39,7 +39,7 @@ public class Xsd2JavaPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane(BasicTablePartition content) {
+	protected BasicTablePartition createContentPane() {
 		Xsd2Java config = ConfigUtil.getInstance().getConfig().getXsd2Java();
 
 		encodingField = createTextField("Java文件编码：", config.getEncoding());
@@ -48,6 +48,7 @@ public class Xsd2JavaPartition extends WizardPartition {
 				JFileChooser.DIRECTORIES_ONLY);
 		packageNameField = createTextField("Java类的包名：", config.getPackage());
 
+		BasicTablePartition content = new BasicTablePartition();
 		content.addGroupRow(encodingField, encodingField.getField());
 		content.addGroupRow(srcDirField, srcDirField.getField());
 		content.addGroupRow(destDirField, destDirField.getField());

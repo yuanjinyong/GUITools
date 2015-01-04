@@ -27,13 +27,10 @@ package com.yuan.gui.app.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import sun.net.TelnetInputStream;
-import sun.net.TelnetOutputStream;
 
 public class FtpUtil {
 
@@ -168,35 +165,14 @@ public class FtpUtil {
 	 *
 	 */
 	public long downloadFile(String filename, String newfilename) {
-		TelnetInputStream is = null;
-		FileOutputStream os = null;
-		long result = 0;
-		try {
-			// is = ftpClient.get(filename);
-			java.io.File outfile = new java.io.File(newfilename);
-			os = new FileOutputStream(outfile);
-			byte[] bytes = new byte[1024];
-			int c;
-			while ((c = is.read(bytes)) != -1) {
-				os.write(bytes, 0, c);
-				result += c;
-			}
-			return result;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return -1;
-		} finally {
-			try {
-				if (is != null) {
-					is.close();
-				}
-				if (os != null) {
-					os.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		/*
+		 * TelnetInputStream is = null; FileOutputStream os = null; long result = 0; try { is = ftpClient.get(filename);
+		 * java.io.File outfile = new java.io.File(newfilename); os = new FileOutputStream(outfile); byte[] bytes = new
+		 * byte[1024]; int c; while ((c = is.read(bytes)) != -1) { os.write(bytes, 0, c); result += c; } return result;
+		 * } catch (IOException e) { e.printStackTrace(); return -1; } finally { try { if (is != null) { is.close(); }
+		 * if (os != null) { os.close(); } } catch (IOException e) { e.printStackTrace(); } }
+		 */
+		return 0;
 	}
 
 	/**
@@ -208,31 +184,13 @@ public class FtpUtil {
 	 *
 	 */
 	public long getFileSize(String filename) {
-		TelnetInputStream is = null;
-		long result = 0;
-		try {
-			// is = ftpClient.get(filename);
-			byte[] bytes = new byte[1024];
-			int c;
-			while ((c = is.read(bytes)) != -1) {
-				result += c;
-			}
-			return result;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return -1;
-		} finally {
-			try {
-				if (is != null) {
-					is.close();
-				}
-				if (os != null) {
-					os.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		/*
+		 * TelnetInputStream is = null; long result = 0; try { is = ftpClient.get(filename); byte[] bytes = new
+		 * byte[1024]; int c; while ((c = is.read(bytes)) != -1) { result += c; } return result; } catch (IOException e)
+		 * { e.printStackTrace(); return -1; } finally { try { if (is != null) { is.close(); } if (os != null) {
+		 * os.close(); } } catch (IOException e) { e.printStackTrace(); } }
+		 */
+		return 0;
 	}
 
 	/**
@@ -304,40 +262,40 @@ public class FtpUtil {
 		}
 	}
 
-	/**
-	 * 上传文件或者文件夹
-	 *
-	 * @param fileName
-	 * @param newName
-	 * @param path
-	 * @throws Exception
-	 */
-	private void upload(String fileName, String newName, String path) throws Exception {
-		File file_in = new File(fileName);// 打开本地待长传的文件
-		if (!file_in.exists()) {
-			throw new Exception("此文件或文件夹[" + file_in.getName() + "]有误或不存在!");
-		}
-		if (file_in.isDirectory()) {
-			if (!isDirExist(newName)) {
-				createDir(newName);
-			}
-			// ftpClient.cd(newName);
-			File sourceFile[] = file_in.listFiles();
-			for (int i = 0; i < sourceFile.length; i++) {
-				if (!sourceFile[i].exists()) {
-					continue;
-				}
-				if (sourceFile[i].isDirectory()) {
-					this.upload(sourceFile[i].getPath(), sourceFile[i].getName(), path + File.separator + newName);
-				} else {
-					this.uploadFile(sourceFile[i].getPath(), sourceFile[i].getName());
-				}
-			}
-		} else {
-			uploadFile(file_in.getPath(), newName);
-		}
-		// ftpClient.cd(path);
-	}
+	// /**
+	// * 上传文件或者文件夹
+	// *
+	// * @param fileName
+	// * @param newName
+	// * @param path
+	// * @throws Exception
+	// */
+	// private void upload(String fileName, String newName, String path) throws Exception {
+	// File file_in = new File(fileName);// 打开本地待长传的文件
+	// if (!file_in.exists()) {
+	// throw new Exception("此文件或文件夹[" + file_in.getName() + "]有误或不存在!");
+	// }
+	// if (file_in.isDirectory()) {
+	// if (!isDirExist(newName)) {
+	// createDir(newName);
+	// }
+	// // ftpClient.cd(newName);
+	// File sourceFile[] = file_in.listFiles();
+	// for (int i = 0; i < sourceFile.length; i++) {
+	// if (!sourceFile[i].exists()) {
+	// continue;
+	// }
+	// if (sourceFile[i].isDirectory()) {
+	// this.upload(sourceFile[i].getPath(), sourceFile[i].getName(), path + File.separator + newName);
+	// } else {
+	// this.uploadFile(sourceFile[i].getPath(), sourceFile[i].getName());
+	// }
+	// }
+	// } else {
+	// uploadFile(file_in.getPath(), newName);
+	// }
+	// // ftpClient.cd(path);
+	// }
 
 	/**
 	 *
@@ -353,31 +311,14 @@ public class FtpUtil {
 	 *
 	 */
 	public long uploadFile(String filename, String newname) throws Exception {
-		TelnetOutputStream os = null;
-		FileInputStream is = null;
-		long result = 0;
-		try {
-			java.io.File file_in = new java.io.File(filename);
-			if (!file_in.exists()) {
-				return -1;
-			}
-			// os = ftpClient.put(newname);
-			is = new FileInputStream(file_in);
-			byte[] bytes = new byte[1024];
-			int c;
-			while ((c = is.read(bytes)) != -1) {
-				os.write(bytes, 0, c);
-				result += c;
-			}
-			return result;
-		} finally {
-			if (is != null) {
-				is.close();
-			}
-			if (os != null) {
-				os.close();
-			}
-		}
+		/*
+		 * TelnetOutputStream os = null; FileInputStream is = null; long result = 0; try { java.io.File file_in = new
+		 * java.io.File(filename); if (!file_in.exists()) { return -1; } os = ftpClient.put(newname); is = new
+		 * FileInputStream(file_in); byte[] bytes = new byte[1024]; int c; while ((c = is.read(bytes)) != -1) {
+		 * os.write(bytes, 0, c); result += c; } return result; } finally { if (is != null) { is.close(); } if (os !=
+		 * null) { os.close(); } }
+		 */
+		return 0;
 	}
 
 	/**

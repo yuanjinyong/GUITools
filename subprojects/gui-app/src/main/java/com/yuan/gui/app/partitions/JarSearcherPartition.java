@@ -35,11 +35,12 @@ public class JarSearcherPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane(BasicTablePartition content) {
+	protected BasicTablePartition createContentPane() {
 		matchTypeField = createRadioField("", new String[] { "严格匹配", "宽松匹配" }, "宽松匹配");
 		dirField = createFileField("查询路径：", "Z:/", "请选择查询路径", JFileChooser.DIRECTORIES_ONLY);
 		classField = createTextField("查询类名：", "");
 
+		BasicTablePartition content = new BasicTablePartition();
 		content.addGroupRow(matchTypeField, matchTypeField.getField());
 		content.addGroupRow(dirField, dirField.getField());
 		content.addGroupRow(classField, classField.getField());

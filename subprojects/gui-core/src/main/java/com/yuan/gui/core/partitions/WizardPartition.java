@@ -47,7 +47,7 @@ public abstract class WizardPartition extends AbstractTablePartition implements 
 		}
 
 		banner = checkAndHide(createBanner());
-		contentPane = new JScrollPane(createContentPane(new BasicTablePartition()));
+		contentPane = new JScrollPane(createContentPane());
 		navigateBar = checkAndHide(createNavigateBar());
 
 		addGroupCol(titleBar, banner, contentPane, navigateBar);
@@ -61,7 +61,7 @@ public abstract class WizardPartition extends AbstractTablePartition implements 
 		return null;
 	}
 
-	abstract protected BasicTablePartition createContentPane(BasicTablePartition content);
+	abstract protected BasicTablePartition createContentPane();
 
 	protected NavigateBar createNavigateBar() {
 		return null;

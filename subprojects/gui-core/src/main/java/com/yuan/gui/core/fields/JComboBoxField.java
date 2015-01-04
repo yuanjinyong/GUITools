@@ -102,11 +102,12 @@ public abstract class JComboBoxField<E> extends JComboBox<E> {
 				private static final long serialVersionUID = 1L;
 
 				@Override
-				protected BasicTablePartition createContentPane(BasicTablePartition content) {
+				protected BasicTablePartition createContentPane() {
 					textField = createTextField("可选项：", "");
 					fileField = createFileField("可选项：", "", "点击按钮选择", JFileChooser.FILES_ONLY);
 					fileField.getField().setEditable(false);
 
+					BasicTablePartition content = new BasicTablePartition();
 					content.addGroupRow(textField, textField.getField());
 					content.addGroupRow(fileField, fileField.getField());
 					content.addGroupCol(Alignment.TRAILING, textField, fileField);

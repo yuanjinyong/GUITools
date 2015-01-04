@@ -40,13 +40,14 @@ public class XmlFormatPartition extends WizardPartition {
 	}
 
 	@Override
-	protected BasicTablePartition createContentPane(BasicTablePartition content) {
+	protected BasicTablePartition createContentPane() {
 		Xmlformat config = ConfigUtil.getInstance().getConfig().getXmlformat();
 
 		srcXMLField = createTextAreaField("格式化前：", "");
 		destXMLField = createTextAreaField("格式化后：", "");
 		formatField = createRadioField("输出格式：", new String[] { "Compact", "Pretty", "Raw" }, config.getFormattype());
 
+		BasicTablePartition content = new BasicTablePartition();
 		content.addGroupRow(formatField, formatField.getField());
 		content.addGroupRow(GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, srcXMLField,
 				srcXMLField.getField());

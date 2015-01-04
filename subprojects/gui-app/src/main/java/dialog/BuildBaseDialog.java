@@ -38,7 +38,7 @@ public class BuildBaseDialog extends AbstractDialog implements ActionListener, R
 	private static final String WARP = "\r\n";
 	private String actionCommand;
 	private JLabel lblHostIp;
-	private JComboBox cmbHostIp;
+	private JComboBox<String> cmbHostIp;
 	private JLabel lblUserName;
 	private JTextField txtUserName;
 	private JLabel lblPassword;
@@ -48,14 +48,14 @@ public class BuildBaseDialog extends AbstractDialog implements ActionListener, R
 	private JLabel lblSvnPwd;
 	private JTextField txtSvnPwd;
 	private JLabel lblCodePath;
-	private JComboBox cmbCodePath;
+	private JComboBox<String> cmbCodePath;
 	private JLabel lblPrompt;
 	private JTextField txtPrompt;
 	private JTextField txtWarp;
 	private JLabel lblBeName;
-	private JComboBox cmbBeName;
+	private JComboBox<String> cmbBeName;
 	private JLabel lblSvnPath;
-	private JComboBox cmbSvnPath;
+	private JComboBox<String> cmbSvnPath;
 	private JLabel lblMessage;
 	private SimpleDateFormat sdf;
 
